@@ -1,0 +1,65 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "com_clientmanager",
+  "version": "1.0.0",
+  "description": "Client Manager Assets",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "com_clientmanager.flatpickr",
+      "type": "script",
+      "uri": "https://cdn.jsdelivr.net/npm/flatpickr",
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "com_clientmanager.flatpickr-pt",
+      "type": "script",
+      "uri": "https://npmcdn.com/flatpickr/dist/l10n/pt.js",
+      "dependencies": [
+        "com_clientmanager.flatpickr"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "com_clientmanager.flatpickr-css",
+      "type": "style",
+      "uri": "https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css"
+    },
+    {
+      "name": "com_clientmanager.imask",
+      "type": "script",
+      "uri": "https://unpkg.com/imask",
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "com_clientmanager.client-form",
+      "type": "script",
+      "uri": "components/com_clientmanager/media/js/client-form.js",
+      "dependencies": [
+        "com_clientmanager.flatpickr-pt",
+        "com_clientmanager.imask"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "com_clientmanager.demand-form",
+      "type": "script",
+      "uri": "components/com_clientmanager/media/js/demand-form.js",
+      "dependencies": [
+        "com_clientmanager.flatpickr-pt",
+        "com_clientmanager.imask"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    }
+  ]
+}

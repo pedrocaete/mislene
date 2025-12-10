@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="dados_pessoais" label="COM_CLIENTMANAGER_FIELDSET_DADOS_PESSOAIS_LABEL">
+        <field name="id" type="hidden" />
+
+        <field
+            name="nome_completo"
+            type="text"
+            label="COM_CLIENTMANAGER_FIELD_NOME_COMPLETO_LABEL"
+            required="true"
+            maxlength="255"
+        />
+
+        <field
+            name="apelido"
+            type="text"
+            label="COM_CLIENTMANAGER_FIELD_APELIDO_LABEL"
+            maxlength="255"
+        />
+
+        <field
+            name="data_nascimento"
+            type="text"
+            label="COM_CLIENTMANAGER_FIELD_DATA_NASCIMENTO_LABEL"
+            class="form-control js-date"
+        />
+
+        <field
+            name="sexo"
+            type="radio"
+            label="COM_CLIENTMANAGER_FIELD_SEXO_LABEL"
+            default="Não Informado"
+            layout="joomla.form.field.radio">
+            <option value="Masculino">COM_CLIENTMANAGER_OPTION_MASCULINO</option>
+            <option value="Feminino">COM_CLIENTMANAGER_OPTION_FEMININO</option>
+            <option value="Não Informado">COM_CLIENTMANAGER_OPTION_NAOINFORMADO</option>
+        </field>
+
+        <field
+            name="cpf"
+            type="text"
+            label="COM_CLIENTMANAGER_FIELD_CPF_LABEL"
+            required="true"
+            maxlength="14"
+            class="form-control js-cpf"
+        />
+
+        <field
+            name="estado_civil"
+            type="list"
+            label="COM_CLIENTMANAGER_FIELD_ESTADO_CIVIL_LABEL">
+            <option value="">COM_CLIENTMANAGER_OPTION_SELECIONE</option>
+            <option value="Solteiro(a)">COM_CLIENTMANAGER_OPTION_SOLTEIRO</option>
+            <option value="Casado(a)">COM_CLIENTMANAGER_OPTION_CASADO</option>
+            <option value="Divorciado(a)">COM_CLIENTMANAGER_OPTION_DIVORCIADO</option>
+            <option value="Viúvo(a)">COM_CLIENTMANAGER_OPTION_VIUVO</option>
+            <option value="União Estável">COM_CLIENTMANAGER_OPTION_UNIAOESTAVEL</option>
+        </field>
+
+        <field
+            name="nome_conjuge"
+            type="text"
+            label="COM_CLIENTMANAGER_FIELD_NOME_CONJUGE_LABEL"
+            maxlength="255"
+            showon="estado_civil:Casado(a),União Estável"
+        />
+
+        <field
+            name="children"
+            type="subform"
+            label="Filhos"
+            multiple="true"
+            layout="joomla.form.field.subform.repeatable"
+            formsource="components/com_clientmanager/forms/child.xml"
+            min="0"
+            buttons="add,remove,move"
+        />
+
+        <field
+            name="indicado_por"
+            type="sql"
+            label="COM_CLIENTMANAGER_FIELD_INDICADO_POR_LABEL"
+            query="SELECT id, nome_completo FROM #__clientmanager_clients ORDER BY nome_completo ASC"
+            key_field="id"
+            value_field="nome_completo"
+            header="Selecione um cliente"
+            default="0"
+        />
+    </fieldset>
+
+    <fieldset name="documentos" label="COM_CLIENTMANAGER_FIELDSET_DOCUMENTOS_LABEL"
+        addfieldprefix="Cm\Component\Clientmanager\Site\Field">
+        <field
+            name="cns"
+            type="text"
+            label="COM_CLIENTMANAGER_FIELD_CNS_LABEL"
+            description="COM_CLIENTMANAGER_FIELD_CNS_DESC"
+            maxlength="20"
+        />
+        <field
+            name="titulo_eleitor"
+            type="text"
+            label="COM_CLIENTMANAGER_FIELD_TITULO_ELEITOR_LABEL"
+            maxlength="20"
+        />
+        <field
+            name="zona_eleitoral"
+            type="zonaeleitoral"
+            label="COM_CLIENTMANAGER_FIELD_ZONA_ELEITORAL_LABEL"
+            maxlength="10"
+        />
+        <field
+            name="secao_eleitoral"
+            type="text"
+            label="COM_CLIENTMANAGER_FIELD_SECAO_ELEITORAL_LABEL"
+            maxlength="10"
+        />
+    </fieldset>
+
+    <fieldset name="contato" label="COM_CLIENTMANAGER_FIELDSET_CONTATO_LABEL">
+        <field
+            name="tel_fixo"
+            type="tel"
+            label="COM_CLIENTMANAGER_FIELD_TEL_FIXO_LABEL"
+            maxlength="20"
+            class="form-control js-phone"
+        />
+        <field
+            name="celular_whatsapp"
+            type="tel"
+            label="COM_CLIENTMANAGER_FIELD_CELULAR_WHATSAPP_LABEL"
+            maxlength="20"
+            class="form-control js-phone"
+        />
+        <field
+            name="email"
+            type="email"
+            label="COM_CLIENTMANAGER_FIELD_EMAIL_LABEL"
+            maxlength="150"
+            validate="email"
+        />
+        <field
+            name="instagram"
+            type="text"
+            label="COM_CLIENTMANAGER_FIELD_INSTAGRAM_LABEL"
+            maxlength="100"
+        />
+    </fieldset>
+
+    <fieldset
+        name="endereco"
+        label="COM_CLIENTMANAGER_FIELDSET_ENDERECO_LABEL"
+        addfieldprefix="Cm\Component\Clientmanager\Site\Field"
+    >
+        <field name="cep" type="text" label="COM_CLIENTMANAGER_FIELD_CEP_LABEL" maxlength="10" />
+        <field name="rua" type="rua" label="COM_CLIENTMANAGER_FIELD_RUA_LABEL" maxlength="255" />
+        <field name="numero" type="text" label="COM_CLIENTMANAGER_FIELD_NUMERO_LABEL" maxlength="20" />
+        <field name="complemento" type="text" label="COM_CLIENTMANAGER_FIELD_COMPLEMENTO_LABEL"
+            maxlength="100" />
+        <field name="bairro" type="bairro" label="COM_CLIENTMANAGER_FIELD_BAIRRO_LABEL"
+            maxlength="100" />
+        <field name="cidade" type="text" label="COM_CLIENTMANAGER_FIELD_CIDADE_LABEL"
+            maxlength="100" />
+        <field name="tipo_residencia" type="tiporesidencia"
+            label="COM_CLIENTMANAGER_FIELD_TIPO_RESIDENCIA_LABEL" maxlength="100" />
+    </fieldset>
+
+    <fieldset name="informacoes_adicionais"
+        label="COM_CLIENTMANAGER_FIELDSET_INFORMACOES_ADICIONAIS_LABEL"
+        addfieldprefix="Cm\Component\Clientmanager\Site\Field"
+    >
+        <field name="escolaridade" type="escolaridade"
+            label="COM_CLIENTMANAGER_FIELD_ESCOLARIDADE_LABEL"
+            maxlength="100" />
+        <field name="profissao" type="profissao" label="COM_CLIENTMANAGER_FIELD_PROFISSAO_LABEL"
+            maxlength="150" />
+        <field name="local_trabalho" type="localtrabalho"
+            label="COM_CLIENTMANAGER_FIELD_LOCAL_TRABALHO_LABEL" maxlength="255" />
+    </fieldset>
+
+    <fieldset name="controle" label="COM_CLIENTMANAGER_FIELDSET_CONTROLE_LABEL">
+        <field name="published" type="hidden" default="1" />
+        <field name="created_by" type="hidden" default="0" />
+        <field
+            name="created"
+            type="calendar"
+            label="Criado em"
+            readonly="true"
+            format="%d/%m/%Y %H:%M"
+            showweeks="false" singleheader="true"
+        />
+        <field
+            name="modified"
+            type="calendar"
+            label="Modificado em"
+            readonly="true"
+            format="%d/%m/%Y %H:%M"
+            showweeks="false" singleheader="true"
+        />
+    </fieldset>
+</form>

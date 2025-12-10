@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="component" version="5.0" method="upgrade">
+
+    <name>com_clientmanager</name>
+    <author>Pedro Inácio Rodrigues Pontes</author>
+    <creationDate>September 2025</creationDate>
+    <copyright>Copyright (c) 2025 Pedro Inácio Rodrigues Pontes. All Rights Reserved.</copyright>
+    <license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+    <authorEmail>pedroinaciopontes@gmail.com</authorEmail>
+    <authorUrl></authorUrl>
+    <version>1.0.0</version>
+    <description>COM_CLIENTMANAGER_DESCRIPTION</description>
+
+    <namespace path="src">Cm\Component\Clientmanager</namespace>
+
+    <administration>
+        <files folder="admin">
+            <folder>sql</folder>
+            <folder>services</folder>
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+        </files>
+    
+        <languages folder="admin/language">
+            <language tag="pt-BR">pt-BR/pt-BR.com_clientmanager.ini</language>
+            <language tag="pt-BR">pt-BR/pt-BR.com_clientmanager.sys.ini</language>
+        </languages>
+
+    </administration>
+
+    <files folder="site">
+        <folder>src</folder>
+        <folder>tmpl</folder>
+        <folder>forms</folder>
+
+    </files>
+
+    <languages folder="site/language">
+        <language tag="pt-BR">pt-BR/pt-BR.com_clientmanager.ini</language>
+        <language tag="pt-BR">pt-BR/pt-BR.com_clientmanager.sys.ini</language>
+    </languages>
+
+    <media destination="com_clientmanager" folder="media">
+        <filename>joomla.asset.json</filename>
+        <folder>js</folder>
+    </media>
+
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+
+</extension>

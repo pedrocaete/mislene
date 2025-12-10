@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="child_fields">
+        <field name="id" type="hidden" />
+        
+        <field 
+            name="nome_completo" 
+            type="text" 
+            label="Nome do Filho"
+            required="true"
+        />
+
+        <field 
+            name="data_nascimento" 
+            type="calendar" 
+            label="Data de Nascimento"
+            format="%Y-%m-%d"
+            showweeks="false"   singleheader="true"
+        />
+    </fieldset>
+</form>

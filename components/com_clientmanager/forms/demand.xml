@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form>
+    <fieldset name="informacoes_demanda"
+        addfieldprefix="Cm\Component\Clientmanager\Site\Field"
+        label="COM_CLIENTMANAGER_FIELDSET_INFORMACOES_DEMANDA_LABEL">
+        <field
+            name="id"
+            type="hidden"
+        />
+        <field
+            name="titulo"
+            type="text"
+            label="COM_CLIENTMANAGER_FIELD_TITULO_LABEL"
+            maxlength="255"
+        />
+        <field
+            name="cliente_id"
+            type="sql"
+            label="COM_CLIENTMANAGER_FIELD_CLIENTE_ID_LABEL"
+            query="SELECT id, nome_completo FROM #__clientmanager_clients ORDER BY nome_completo ASC"
+            key_field="id"
+            value_field="nome_completo"
+            header="Selecione um cliente"
+            required="true"
+        />
+        <field
+            name="local_captacao"
+            type="localcaptacao"
+            label="COM_CLIENTMANAGER_FIELD_LOCAL_CAPTACAO_LABEL"
+            maxlength="255"
+        />
+        <field
+            name="tipo_demanda"
+            type="demandlist"
+            label="COM_CLIENTMANAGER_FIELD_TIPO_DEMANDA_LABEL"
+            maxlength="150"
+        />
+        <field
+            name="setor_encaminhado"
+            type="setorencaminhado"
+            label="COM_CLIENTMANAGER_FIELD_SETOR_ENCAMINHADO_LABEL"
+            maxlength="150"
+        />
+        <field
+            name="descricao"
+            type="textarea"
+            label="COM_CLIENTMANAGER_FIELD_DESCRICAO_LABEL"
+            rows="5"
+        />
+    </fieldset>
+
+    <fieldset name="documentacao"
+        label="COM_CLIENTMANAGER_FIELDSET_DOCUMENTACAO_LABEL"
+        addfieldprefix="Cm\Component\Clientmanager\Site\Field">
+        <field
+            name="protocolo"
+            type="text"
+            label="COM_CLIENTMANAGER_FIELD_PROTOCOLO_LABEL"
+            maxlength="50"
+        />
+        <field
+            name="oficio"
+            type="oficio"
+            label="COM_CLIENTMANAGER_FIELD_OFICIO_LABEL"
+            maxlength="50"
+        />
+        <field
+            name="requerimento"
+            type="text"
+            label="COM_CLIENTMANAGER_FIELD_REQUERIMENTO_LABEL"
+            maxlength="50"
+        />
+    </fieldset>
+
+    <fieldset name="acompanhamento"
+        label="COM_CLIENTMANAGER_FIELDSET_ACOMPANHAMENTO_LABEL">
+        <field
+            name="status"
+            type="list"
+            label="COM_CLIENTMANAGER_FIELD_STATUS_LABEL"
+            default="0"
+        >
+            <option value="0">COM_CLIENTMANAGER_OPTION_NAO_INICIADA</option>
+            <option value="1">COM_CLIENTMANAGER_OPTION_ANDAMENTO</option>
+            <option value="2">COM_CLIENTMANAGER_OPTION_CONCLUIDO_COM_SUCESSO</option>
+            <option value="3">COM_CLIENTMANAGER_OPTION_CONCLUIDO_SEM_SUCESSO</option>
+        </field>
+        <field
+            name="acompanhamento"
+            type="textarea"
+            label="COM_CLIENTMANAGER_FIELD_ACOMPANHAMENTO_LABEL"
+            rows="6"
+        />
+        <field
+            name="custo"
+            type="number"
+            label="COM_CLIENTMANAGER_FIELD_CUSTO_LABEL"
+            step="0.01"
+        />
+        <field
+            name="data_conclusao"
+            type="text"
+            label="COM_CLIENTMANAGER_FIELD_DATA_CONCLUSAO_LABEL"
+            class="form-control js-datetime"
+        />
+        <field
+            name="descricao_conclusao"
+            type="textarea"
+            label="COM_CLIENTMANAGER_FIELD_DESCRICAO_CONCLUSAO_LABEL"
+            rows="6"
+            showon="status:2,3"
+        />
+
+    </fieldset>
+
+    <fieldset name="controle" label="COM_CLIENTMANAGER_FIELDSET_CONTROLE_LABEL">
+        <field
+            name="published"
+            type="hidden"
+            default="1"
+        />
+        <field
+            name="created_by"
+            type="hidden"
+            default="0"
+        />
+        <field
+            name="created"
+            type="calendar"
+            label="Criado em"
+            readonly="true"
+            format="%d/%m/%Y %H:%M"
+            showweeks="false"   singleheader="true"
+        />
+        <field
+            name="modified"
+            type="calendar"
+            label="Modificado em"
+            readonly="true"
+            format="%d/%m/%Y %H:%M"
+            showweeks="false"   singleheader="true"
+        />
+    </fieldset>
+</form>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+    <layout title="COM_CLIENTMANAGER_DEMAND_VIEW_DEFAULT_TITLE">
+        <message>COM_CLIENTMANAGER_DEMAND_VIEW_DEFAULT_DESC</message>
+    </layout>
+    <fields name="request">
+        <fieldset name="request">
+            <field
+                name="id"
+                type="number"
+                label="ID da Demanda"
+                description="Deixe 0 para criar nova"
+                default="0"
+            />
+        </fieldset>
+    </fields>
+</metadata>
