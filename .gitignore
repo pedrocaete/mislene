@@ -1,0 +1,6 @@
+configuration.php
+.htaccess
+htaccess.txt
+administrator/cache
+administrator/logs
+cache/*
